@@ -2,194 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rikesh Acharya - Software Engineer, Data Scientist, and Entrepreneur. Founder of RsDs and passionate about AI, ML, and software development.">
   <meta name="keywords" content="Rikesh Acharya, Software Engineer, Data Scientist, AI, ML, RsDs, Entrepreneur, Nepal">
   <meta name="author" content="Rikesh Acharya">
   <link rel="icon" type="image/jpeg" href="r.jpg">
   <title>Rikesh Acharya</title>
+
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Rikesh Acharya",
-      "url": "https://rikeshacharya.com.np",
-      "image": "https://rikeshacharya.com.np/r.jpg",
-      "sameAs": [
-        "https://www.facebook.com/rike.sh.106/",
-        "https://www.instagram.com/rikeshacharya2/"
-      ],
-      "jobTitle": "Software Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "RsDs"
-      }
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rikesh Acharya",
+    "url": "https://rikeshacharya.com.np",
+    "image": "https://rikeshacharya.com.np/r.jpg",
+    "sameAs": [
+      "https://www.facebook.com/rike.sh.106/",
+      "https://www.instagram.com/rikeshacharya2/"
+    ],
+    "jobTitle": "Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "RsDs"
     }
+  }
   </script>
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    * {
       overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
     }
 
-    .container {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      padding: 20px;
-    }
-
-    .profile {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .profile-card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      width: 320px;
-      text-align: center;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .profile-card img {
-      width: 150px;
-      height: 150px;
+    .ball {
+      position: absolute;
+      bottom: 50px;
       border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: bottom 0.3s;
     }
 
-    .profile-card h2 {
-      color: #2d3e50;
-      font-size: 22px;
-      margin-bottom: 10px;
+    #ball1 {
+      width: 60px;
+      height: 60px;
+      background: red;
     }
 
-    .profile-card p {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #666;
+    #ball2 {
+      width: 40px;
+      height: 40px;
+      background: blue;
+      opacity: 0.8;
     }
 
-    .profile-card a {
-      display: inline-block;
-      background-color: #0073e6;
-      color: white;
-      padding: 8px 16px;
-      margin-top: 15px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease-in-out;
+    #ball3 {
+      width: 30px;
+      height: 30px;
+      background: green;
+      opacity: 0.7;
     }
 
-    .profile-card a:hover {
-      background-color: #005bb5;
-    }
-
-    /* Hidden container by default */
-    .corner-hover-area {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 80px;
-      height: 80px;
-      z-index: 999;
-    }
-
-    .project-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: white;
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      display: none;
-      flex-direction: column;
-      z-index: 1000;
-    }
-
-    .project-btn {
-      background-color: #28a745;
-      color: white;
-      padding: 10px 16px;
-      margin: 5px 0;
-      border-radius: 10px;
-      font-weight: bold;
+    #message {
       text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease, transform 0.2s;
-    }
-
-    .project-btn:hover {
-      background-color: #218838;
-      transform: scale(1.05);
+      margin-top: 120px;
+      color: red;
+      font-weight: bold;
+      font-family: Arial;
     }
   </style>
+
 </head>
 <body>
-  <div class="container">
-    <div class="profile">
-      <div class="profile-card">
-        <img src="r.jpg" alt="Rikesh Acharya">
-        <h2>Rikesh Acharya</h2>
-        <p>Software Engineer | Data Scientist | Entrepreneur</p>
-        <p>Rikesh is passionate about AI, ML, and creating innovative software solutions. He is the founder of RsDs, a conceptual cryptocurrency project.</p>
-        <a href="RikeshAcharya_Resume.pdf" target="_blank">View Full Resume</a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Hover Trigger Area -->
-  <div class="corner-hover-area" onmouseover="showProjects()" onmouseout="hideProjects()"></div>
+  <div id="ball" class="ball"></div>
+  <div id="ball1" class="ball"></div>
+  <div id="ball2" class="ball"></div>
+  <div id="ball3" class="ball"></div>
 
-  <!-- Hidden Projects Container -->
-  <div class="project-container" id="projectContainer">
-		
-    <a href="CProgramDSA1.zip" class="project-btn" download>Download - Project DSA</a>
-    <a href="turbo_c_graphics_programs.zip" class="project-btn" download>Download - Graphics</a>
-    <a href="#" class="project-btn" download>Download - Statistics</a>
-    <a href="practical work CA.docx" class="project-btn" download>Download - Computer Architecture</a>
-    <a href="NMLabReport.docx" class="project-btn" download>Download - Numerical Methods</a>
-  </div>
+  <p id="message"></p>
 
   <script>
-    const projectBox = document.getElementById('projectContainer');
-    const hoverZone = document.querySelector('.corner-hover-area');
+    const ball = document.getElementById("ball");
+    const ball1 = document.getElementById("ball1");
+    const ball2 = document.getElementById("ball2");
+    const ball3 = document.getElementById("ball3");
+    const message = document.getElementById("message");
 
-    function showProjects() {
-      projectBox.style.display = 'flex';
-    }
+    let originalPosition = 50;
+    let sizeToggle = true;
+    let position = 50;
+    let direction = 2;
 
-    function hideProjects() {
-      projectBox.style.display = 'none';
-    }
+    // Follow distance offset
+    let offset2 = -50;
+    let offset3 = -100;
 
-    // Keep visible while hovering over the project box
-    projectBox.addEventListener('mouseover', showProjects);
-    projectBox.addEventListener('mouseout', hideProjects);
+    // Key press events for bounce up
+    document.addEventListener("keydown", function(event) {
+      if (event.key.toLowerCase() === "r") {
+        ball1.style.bottom = "200px";
+        ball2.style.bottom = "200px";
+        ball3.style.bottom = "200px";
+        message.textContent = "";
+      } else {
+        message.textContent = "Error: Only 'R' key makes the balls move";
+      }
+    });
+
+    document.addEventListener("keyup", function(event) {
+      if (event.key.toLowerCase() === "r") {
+        ball1.style.bottom = originalPosition + "px";
+        ball2.style.bottom = originalPosition + "px";
+        ball3.style.bottom = originalPosition + "px";
+      }
+    });
+
+    // Size change animation
+    setInterval(() => {
+      ball1.style.width = sizeToggle ? "100px" : "130px";
+      ball1.style.height = sizeToggle ? "100px" : "130px";
+      sizeToggle = !sizeToggle;
+    }, 500);
+
+    // Edge bounce movement
+    setInterval(() => {
+      position += direction;
+      ball.style.left = position + "px";
+
+      if (position >= window.innerWidth - 100 || position <= 0) {
+        direction *= -1;
+      }
+    }, 20);
+
+    // Auto wrap-around movement (main balls)
+    setInterval(() => {
+      position += direction;
+
+      ball1.style.left = position + "px";
+      ball2.style.left = (position + offset2) + "px";
+      ball3.style.left = (position + offset3) + "px";
+
+      if (position > window.innerWidth) position = -100;
+      if (position < -100) position = window.innerWidth;
+    }, 2);
   </script>
+
 </body>
 </html>
