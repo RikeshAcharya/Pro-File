@@ -28,121 +28,172 @@
   </script>
 
   <style>
-    * {
-      overflow: hidden;
-    }
-
-    .ball {
-      position: absolute;
-      bottom: 50px;
-      border-radius: 50%;
-      transition: bottom 0.3s;
-    }
-
-    #ball1 {
-      width: 60px;
-      height: 60px;
-      background: red;
-    }
-
-    #ball2 {
-      width: 40px;
-      height: 40px;
-      background: blue;
-      opacity: 0.8;
-    }
-
-    #ball3 {
-      width: 30px;
-      height: 30px;
-      background: green;
-      opacity: 0.7;
-    }
-
-    #message {
-      text-align: center;
-      margin-top: 120px;
-      color: red;
-      font-weight: bold;
-      font-family: Arial;
-    }
-  </style>
-
-</head>
+	:root{
+		--clock-size: 320px;
+		--bg-color:black;
+		--clock-face:white;
+		--accent-color:red;
+	}
+	
+	body{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	height:100vh;
+	margin:0;
+	background:white;
+	font-family:'Arial',sans-serif;
+		}
+		.clock{
+		width: var(--clock-size);
+		height: var(--clock-size);
+		background:var(--clock-face);
+		border:5px solid gray;
+		border-radius:50%;
+		position:relative;
+		}
+		.insideClock{
+		position:absolute;
+		width:100%;
+		height:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		}
+		.hand{
+		position:absolute;
+		bottom:50%;
+		left:50%;
+		transform-origin:bottom;
+		border-radius:1px;
+		transform:translateX(-50%);
+		transition:transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44);
+		}
+		.hour{
+			width:8px;
+			height:25%;
+			background:black;
+			z-index:3;
+		}
+		.min{
+		width:5px;
+		height:40%;
+		background:black;
+		z-index:4;
+		}
+		.sec{
+		width:2px;
+		height:43%;
+		background:red;
+		z-index:5;
+		}
+		.centerDot{
+		width:14px;
+		height:14px;
+		background:black;
+		border-radius:50%;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%,-50%);
+		z-index:10;
+		border:2px solid black;
+		}
+		.number{
+		position:absolute;
+		width:100%;
+		height:100%;
+		text-align:center;
+		font-size:1.4rem;
+		font-weight:700;
+		padding:15px;
+		box-sizing:border-box;
+		color:black;
+		}
+</style>
 <body>
 
-  <div id="ball" class="ball"></div>
-  <div id="ball1" class="ball"></div>
-  <div id="ball2" class="ball"></div>
-  <div id="ball3" class="ball"></div>
+<div class='clock' id='clock'>
+<div class='insideClock'>
+<div class= 'hand hour' id='hourHand'></div>
+<div class='hand min' id='minHand'></div>
+<div class='hand sec' id ='secHand'></div>
+</div>
+<div class='centerDot' id ='centerDot'></div>
+</div>
+<script>
+const clock = document.getElementById("clock");
+const hourHand = document.getElementById("hourHand");
+const minHand = document.getElementById("minHand");
+const secHand = document.getElementById("secHand");
+//creating number
+for(let i = 1; i<=12;i++){
+const numberContainer = document.createElement("div");
+numberContainer.className = "number";
+numberContainer.style.transform = `rotate(${i*30}deg)`;
 
-  <p id="message"></p>
+const numText = document.createElement("div");
+numText.innerText = i;
+numText.style.transform = `rotate(-${i*30}deg)`;
+numberContainer.appendChild(numText);
+clock.appendChild(numberContainer);
+}
+function updateClock(){
+const now = new Date();
+const seconds = now.getSeconds();
+const minutes = now.getMinutes();
+const hours = now.getHours();
 
-  <script>
-    const ball = document.getElementById("ball");
-    const ball1 = document.getElementById("ball1");
-    const ball2 = document.getElementById("ball2");
-    const ball3 = document.getElementById("ball3");
-    const message = document.getElementById("message");
+//calculate degree
+const secDeg = (seconds/60) * 360;
+const minDeg = (minutes/60) * 360 + (seconds /60 )* 6;
+const hrDeg  = (hours % 12/12)  * 360 + (minutes /60) * 30;
 
-    let originalPosition = 50;
-    let sizeToggle = true;
-    let position = 50;
-    let direction = 2;
+//temporiarly disabling transition
 
-    // Follow distance offset
-    let offset2 = -50;
-    let offset3 = -100;
+if (seconds === 0){
+secHand.style.transition = 'none';
+}else{
+secHand.style.transition = 'transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
+}
+if(minutes === 0 && seconds === 0){
+minHand.style.transition = 'none';
+}else{
+minHand.style.transition = 'transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
+}
+if((hours % 12 ) === 0 && minutes === 0  && seconds === 0){
+hourHand.style.transition='none';
+}else{
+hourHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
+}
 
-    // Key press events for bounce up
-    document.addEventListener("keydown", function(event) {
-      if (event.key.toLowerCase() === "r") {
-        ball1.style.bottom = "200px";
-        ball2.style.bottom = "200px";
-        ball3.style.bottom = "200px";
-        message.textContent = "";
-      } else {
-        message.textContent = "Error: Only 'R' key makes the balls move";
-      }
-    });
+//Applying transformation
+secHand.style.transform  = `translateX(-50%) rotate(${secDeg}deg)`;
+minHand.style.transform  =`translateX(-50%) rotate(${minDeg}deg)`;
+hourHand.style.transform = `translateX(-50%) rotate(${hrDeg}deg)`;
 
-    document.addEventListener("keyup", function(event) {
-      if (event.key.toLowerCase() === "r") {
-        ball1.style.bottom = originalPosition + "px";
-        ball2.style.bottom = originalPosition + "px";
-        ball3.style.bottom = originalPosition + "px";
-      }
-    });
-
-    // Size change animation
-    setInterval(() => {
-      ball1.style.width = sizeToggle ? "100px" : "130px";
-      ball1.style.height = sizeToggle ? "100px" : "130px";
-      sizeToggle = !sizeToggle;
-    }, 500);
-
-    // Edge bounce movement
-    setInterval(() => {
-      position += direction;
-      ball.style.left = position + "px";
-
-      if (position >= window.innerWidth - 100 || position <= 0) {
-        direction *= -1;
-      }
-    }, 20);
-
-    // Auto wrap-around movement (main balls)
-    setInterval(() => {
-      position += direction;
-
-      ball1.style.left = position + "px";
-      ball2.style.left = (position + offset2) + "px";
-      ball3.style.left = (position + offset3) + "px";
-
-      if (position > window.innerWidth) position = -100;
-      if (position < -100) position = window.innerWidth;
-    }, 2);
-  </script>
-
+//restore translation
+if(seconds === 0){
+secHand.offsetHeight;
+setTimeout(() =>{
+secHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
+},50);
+}
+if(minutes === 0 && seconds === 0){
+minHand.offsetHeight;
+setTimeout(()=>{
+minHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)'
+},50);
+}
+if((hours % 12)===0 && minutes === 0 && seconds === 0) {
+secHand.offsetHeight;
+setTimeout(()=>{
+hourHand.style.transform='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)'
+},50);
+}
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
 </body>
 </html>
