@@ -1,199 +1,304 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rikesh Acharya - Software Engineer, Data Scientist, and Entrepreneur. Founder of RsDs and passionate about AI, ML, and software development.">
-  <meta name="keywords" content="Rikesh Acharya, Software Engineer, Data Scientist, AI, ML, RsDs, Entrepreneur, Nepal">
-  <meta name="author" content="Rikesh Acharya">
-  <title>Rikesh Acharya</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Rikesh Acharya",
-    "url": "https://rikeshacharya.com.np",
-    "image": "https://rikeshacharya.com.np/r.jpg",
-    "sameAs": [
-      "https://www.facebook.com/rike.sh.106/",
-      "https://www.instagram.com/rikeshacharya2/"
-    ],
-    "jobTitle": "Software Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "RsDs"
-    }
-  }
-  </script>
+<title>Rikesh Acharya | AI Safety Researcher, Software Engineer & Data Scientist</title>
 
-  <style>
-	:root{
-		--clock-size: 320px;
-		--bg-color:black;
-		--clock-face:white;
-		--accent-color:red;
-	}
+<meta name="description" content="Official portfolio of Rikesh Acharya. AI Safety enthusiast, Software Engineer, Data Scientist, entrepreneur, and founder of RsDs. Explore projects, research, publications, and AI innovations.">
+
+<meta name="keywords" content="Rikesh Acharya, AI Safety, Artificial Intelligence, Machine Learning, Data Science, Software Engineer Nepal, AI Research, RsDs, Computer Science">
+
+<meta name="author" content="Rikesh Acharya">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://rikeshacharya.com.np">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rikesh Acharya | AI Safety Researcher">
+<meta property="og:description" content="Software Engineer, AI Safety Enthusiast, Data Scientist and Entrepreneur from Nepal.">
+<meta property="og:image" content="https://rikeshacharya.com.np/r.jpg">
+<meta property="og:url" content="https://rikeshacharya.com.np">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rikesh Acharya | AI Safety Researcher">
+<meta name="twitter:description" content="Software Engineer, Data Scientist and AI Safety Researcher.">
+<meta name="twitter:image" content="https://rikeshacharya.com.np/r.jpg">
+
+<link rel="icon" href="r.jpg" type="image/jpeg">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Person",
+ "name":"Rikesh Acharya",
+ "url":"https://rikeshacharya.com.np",
+ "image":"https://rikeshacharya.com.np/r.jpg",
+ "jobTitle":"Software Engineer",
+ "description":"AI Safety Researcher, Software Engineer, Data Scientist and Entrepreneur",
+ "sameAs":[
+   "https://www.facebook.com/rike.sh.106/",
+   "https://www.instagram.com/rikeshacharya2/"
+ ],
+ "worksFor":{
+   "@type":"Organization",
+   "name":"RsDs"
+ }
+}
 	
-	body{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	height:100vh;
-	margin:0;
-	background:white;
-	font-family:'Arial',sans-serif;
-		}
-		.clock{
-		width: var(--clock-size);
-		height: var(--clock-size);
-		background:var(--clock-face);
-		border:5px solid gray;
-		border-radius:50%;
-		position:relative;
-		}
-		.insideClock{
-		position:absolute;
-		width:100%;
-		height:100%;
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		}
-		.hand{
-		position:absolute;
-		bottom:50%;
-		left:50%;
-		transform-origin:bottom;
-		border-radius:1px;
-		transform:translateX(-50%);
-		transition:transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44);
-		}
-		.hour{
-			width:8px;
-			height:25%;
-			background:black;
-			z-index:3;
-		}
-		.min{
-		width:5px;
-		height:40%;
-		background:black;
-		z-index:4;
-		}
-		.sec{
-		width:2px;
-		height:43%;
-		background:red;
-		z-index:5;
-		}
-		.centerDot{
-		width:14px;
-		height:14px;
-		background:black;
-		border-radius:50%;
-		position:absolute;
-		top:50%;
-		left:50%;
-		transform:translate(-50%,-50%);
-		z-index:10;
-		border:2px solid black;
-		}
-		.number{
-		position:absolute;
-		width:100%;
-		height:100%;
-		text-align:center;
-		font-size:1.4rem;
-		font-weight:700;
-		padding:15px;
-		box-sizing:border-box;
-		color:black;
-		}
-</style>
-<body>
-
-<div class='clock' id='clock'>
-<div class='insideClock'>
-<div class= 'hand hour' id='hourHand'></div>
-<div class='hand min' id='minHand'></div>
-<div class='hand sec' id ='secHand'></div>
-</div>
-<div class='centerDot' id ='centerDot'></div>
-</div>
-<script>
-const clock = document.getElementById("clock");
-const hourHand = document.getElementById("hourHand");
-const minHand = document.getElementById("minHand");
-const secHand = document.getElementById("secHand");
-//creating number
-for(let i = 1; i<=12;i++){
-const numberContainer = document.createElement("div");
-numberContainer.className = "number";
-numberContainer.style.transform = `rotate(${i*30}deg)`;
-
-const numText = document.createElement("div");
-numText.innerText = i;
-numText.style.transform = `rotate(-${i*30}deg)`;
-numberContainer.appendChild(numText);
-clock.appendChild(numberContainer);
-}
-function updateClock(){
-const now = new Date();
-const seconds = now.getSeconds();
-const minutes = now.getMinutes();
-const hours = now.getHours();
-
-//calculate degree
-const secDeg = (seconds/60) * 360;
-const minDeg = (minutes/60) * 360 + (seconds /60 )* 6;
-const hrDeg  = (hours % 12/12)  * 360 + (minutes /60) * 30;
-
-//temporiarly disabling transition
-
-if (seconds === 0){
-secHand.style.transition = 'none';
-}else{
-secHand.style.transition = 'transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
-}
-if(minutes === 0 && seconds === 0){
-minHand.style.transition = 'none';
-}else{
-minHand.style.transition = 'transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
-}
-if((hours % 12 ) === 0 && minutes === 0  && seconds === 0){
-hourHand.style.transition='none';
-}else{
-hourHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
-}
-
-//Applying transformation
-secHand.style.transform  = `translateX(-50%) rotate(${secDeg}deg)`;
-minHand.style.transform  =`translateX(-50%) rotate(${minDeg}deg)`;
-hourHand.style.transform = `translateX(-50%) rotate(${hrDeg}deg)`;
-
-//restore translation
-if(seconds === 0){
-secHand.offsetHeight;
-setTimeout(() =>{
-secHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)';
-},50);
-}
-if(minutes === 0 && seconds === 0){
-minHand.offsetHeight;
-setTimeout(()=>{
-minHand.style.transition='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)'
-},50);
-}
-if((hours % 12)===0 && minutes === 0 && seconds === 0) {
-secHand.offsetHeight;
-setTimeout(()=>{
-hourHand.style.transform='transform 0.1s cubic-bezier(0.4,2.08,0.55,0.44)'
-},50);
-}
-}
-setInterval(updateClock,1000);
-updateClock();
 </script>
+	<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Smooth page fade-in
+    document.body.style.opacity = "0";
+    document.body.style.transition = "opacity 1s ease";
+
+    requestAnimationFrame(() => {
+        document.body.style.opacity = "1";
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if(target){
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    });
+
+    // Fade-in sections when scrolling
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },{
+        threshold:0.15
+    });
+
+    document.querySelectorAll("section,.card").forEach(el=>{
+        observer.observe(el);
+    });
+
+    // Mouse Parallax Effect
+    document.addEventListener("mousemove",(e)=>{
+
+        const x = (window.innerWidth/2 - e.clientX) / 40;
+        const y = (window.innerHeight/2 - e.clientY) / 40;
+
+        document.querySelectorAll(".parallax").forEach(el=>{
+            el.style.transform =
+            `translate(${x}px, ${y}px)`;
+        });
+
+    });
+
+    // Smooth wheel scrolling
+    let currentScroll = window.pageYOffset;
+    let targetScroll = window.pageYOffset;
+
+    window.addEventListener("wheel",(e)=>{
+        e.preventDefault();
+
+        targetScroll += e.deltaY * 0.8;
+
+        targetScroll = Math.max(
+            0,
+            Math.min(
+                targetScroll,
+                document.body.scrollHeight - window.innerHeight
+            )
+        );
+
+    },{passive:false});
+
+    function smoothScroll(){
+
+        currentScroll +=
+        (targetScroll - currentScroll) * 0.08;
+
+        window.scrollTo(0,currentScroll);
+
+        requestAnimationFrame(smoothScroll);
+    }
+
+    smoothScroll();
+
+});
+</script>
+	<style>
+		body{
+    margin:0;
+    font-family:Inter,sans-serif;
+    background:#0d1117;
+    color:white;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.profile{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #00ffcc;
+    box-shadow:0 0 40px rgba(0,255,204,.4);
+}
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    opacity:0;
+    overflow-x:hidden;
+}
+
+section,
+.card{
+    opacity:0;
+    transform:translateY(40px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.parallax{
+    transition:transform 0.15s linear;
+    will-change:transform;
+}
+.hero h1{
+    font-size:4rem;
+    margin-top:20px;
+}
+
+.hero h2{
+    color:#00ffcc;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+.buttons a{
+    padding:12px 25px;
+    background:#00ffcc;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+    margin:10px;
+    font-weight:bold;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.card{
+    background:#161b22;
+    padding:25px;
+    margin:20px 0;
+    border-left:4px solid #00ffcc;
+    border-radius:10px;
+}
+	</style>
+</head>
+<body>
+	<section class="hero">
+
+    <img src="r.jpg" alt="Rikesh Acharya" class="profile">
+
+    <h1>Rikesh Acharya</h1>
+
+    <h2>AI Safety Researcher • Software Engineer • Data Scientist</h2>
+
+    <p>
+        Building trustworthy AI systems that are safe,
+        transparent, explainable, and beneficial to humanity.
+    </p>
+
+    <div class="buttons">
+        <a href="RikeshAcharya_Resume.pdf" target="_blank">
+            Download Resume
+        </a>
+
+        <a href="#projects">
+            View Projects
+        </a>
+    </div>
+
+</section>
+<section id="mission">
+
+<h2>AI Safety Mission</h2>
+
+<p>
+My work focuses on developing reliable Artificial Intelligence
+systems that remain aligned with human values.
+I research machine learning, explainable AI,
+risk mitigation, and ethical deployment of intelligent systems.
+</p>
+
+</section>
+	<section id="projects">
+
+<h2>Featured Projects</h2>
+
+<div class="card">
+<h3>Autonomous Biometric Footwear System</h3>
+<p>
+Smart footwear using biometric identification
+and intelligent access control.
+</p>
+</div>
+
+<div class="card">
+<h3>AI Chatbot with RAG</h3>
+<p>
+Retrieval-Augmented Generation system
+for intelligent knowledge retrieval.
+</p>
+</div>
+
+<div class="card">
+<h3>Stock Market Prediction Platform</h3>
+<p>
+Machine learning driven analytics
+for NEPSE stocks.
+</p>
+</div>
+
+</section>
+	<section>
+
+<h2>Research & Publications</h2>
+
+<p>
+Author of published articles and research focused on
+Artificial Intelligence, Machine Learning,
+Data Science and Software Engineering.
+</p>
+
+</section>
 </body>
-</html>
