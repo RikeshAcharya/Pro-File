@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Primary SEO Meta Tags -->
     <title>Rikesh Acharya | Expert AI System Architect & Full-Stack Solutions Developer</title>
     <meta name="description" content="Official portfolio of Rikesh Acharya. Professional AI system designer, machine learning integration expert, and full-stack engineer based in Jumla, Karnali Province, Nepal.">
     <meta name="keywords" content="Rikesh Acharya, AI System Design, AI Tools Professional, AI Engineer, Full-Stack Developer, Nepal Developer, Karnali, Jumla, Machine Learning, Automation Systems">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://github.com/RikeshAcharya">
 
+    <!-- Open Graph / Facebook SEO -->
     <meta property="og:type" content="profile">
     <meta property="og:title" content="Rikesh Acharya | AI System Architect & Full-Stack Developer">
     <meta property="og:description" content="Designing complete end-to-end production systems using advanced AI toolchains. Based in Jumla, Nepal.">
     <meta property="og:url" content="https://github.com/RikeshAcharya">
     <meta property="og:site_name" content="Rikesh Acharya Portfolio">
 
+    <!-- Twitter Card SEO -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rikesh Acharya | AI System Architect & Full-Stack Developer">
     <meta name="twitter:description" content="Designing complete end-to-end production systems using advanced AI toolchains. Based in Jumla, Nepal.">
 
+    <!-- Google/Search Engine JSON-LD Structured Data Schema Definition -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -28,6 +32,7 @@
         "@type": "Person",
         "name": "Rikesh Acharya",
         "jobTitle": "AI System Architect & Full-Stack Developer",
+        "image": "r.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Jumla",
@@ -50,6 +55,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js Library Insertion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -109,12 +116,16 @@
                 transition-duration: 0s !important;
                 transition-delay: 0s !important;
             }
+            #canvas-container { display: none !important; }
         }
     </style>
 </head>
-<body class="min-h-screen antialiased selection:bg-spa-pink selection:text-spa-text">
+<body class="min-h-screen antialiased selection:bg-spa-pink selection:text-spa-text relative">
 
-    <header class="sticky top-0 z-50 bg-spa-bg/90 backdrop-blur-md border-b border-spa-pink/20 transition-all duration-300">
+    <!-- Fixed Three.js Microprocessor Background Container Layer -->
+    <div id="canvas-container" class="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-40"></div>
+
+    <header class="sticky top-0 z-50 bg-spa-bg/80 backdrop-blur-md border-b border-spa-pink/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="text-2xl sm:text-3xl font-serif font-semibold tracking-wide text-spa-text cursor-pointer hover:opacity-80 transition-opacity duration-200">
                 Rikesh<span class="text-spa-gold">.</span>
@@ -151,11 +162,9 @@
         </div>
     </header>
 
-    <main>
+    <main class="relative z-10">
+        <!-- Hero Section -->
         <section class="relative py-20 lg:py-32 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-96 h-96 bg-spa-pink/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-spa-green/10 rounded-full blur-3xl pointer-events-none"></div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                     
@@ -167,7 +176,7 @@
                             Engineering spaces.<br><span class="italic text-spa-pink font-light">Architecting</span> entire AI systems.
                         </h1>
                         <p class="max-w-xl mx-auto lg:mx-0 text-base sm:text-lg text-spa-text/70 font-light leading-relaxed">
-                            Hi, I am Rikesh Acharya. I am currently doing Bachelors in Scinence of Computer Science and information Technology (B.Sc.CSIT) from Tribhuvan University. I am a professional at leveraging cutting-edge AI tools to design, develop, and orchestrate complete end-to-end production systems with elegant architectures.
+                            Hi, I am Rikesh Acharya. I am a professional at leveraging cutting-edge AI tools to design, develop, and orchestrate complete end-to-end production systems with elegant architectures.
                         </p>
                         <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                             <a href="#projects" class="inline-flex items-center justify-center px-8 h-14 text-sm font-semibold tracking-wider uppercase bg-spa-gold text-white shadow-soft-lg hover:bg-spa-goldHover transition-all duration-300 transform hover:-translate-y-0.5 rounded-full cursor-pointer group">
@@ -181,16 +190,17 @@
                     </div>
 
                     <div class="lg:col-span-5 flex justify-center">
-                        <div class="relative p-4 bg-white/40 border border-white/60 rounded-[2.5rem] shadow-soft-lg max-w-sm sm:max-w-md w-full aspect-[4/5] flex flex-col justify-between overflow-hidden">
-                            <div class="w-full h-[70%] rounded-[2rem] bg-gradient-to-tr from-spa-pink/30 to-spa-green/20 relative flex items-center justify-center">
-                                <i data-lucide="cpu" class="w-16 h-16 text-white/80 animate-pulse" aria-hidden="true"></i>
+                        <div class="relative p-4 bg-white/40 border border-white/60 rounded-[2.5rem] shadow-soft-lg max-w-sm sm:max-w-md w-full aspect-[4/5] flex flex-col justify-between overflow-hidden backdrop-blur-sm">
+                            <!-- Integrated Main Profile Photo -->
+                            <div class="w-full h-[73%] rounded-[2rem] overflow-hidden relative border border-spa-pink/10 shadow-inner-soft bg-gradient-to-tr from-spa-pink/20 to-spa-green/10">
+                                <img src="r.jpg" alt="Rikesh Acharya Profile Photo" class="w-full h-full object-cover">
                             </div>
                             <div class="p-4 bg-white/80 border border-spa-pink/10 rounded-[1.5rem] shadow-soft flex items-center space-x-4">
                                 <div class="w-10 h-10 rounded-full bg-spa-green/20 flex items-center justify-center text-spa-text/80">
                                     <i data-lucide="map-pin" class="w-5 h-5" aria-hidden="true"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-semibold uppercase tracking-wider text-spa-text">Location</p>
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-spa-text">Geographic Domain</p>
                                     <p class="text-xs text-spa-text/60">Jumla, Karnali Province, Nepal.</p>
                                 </div>
                             </div>
@@ -201,18 +211,20 @@
             </div>
         </section>
 
-        <section id="mission" class="py-24 bg-white/40 border-y border-spa-pink/10 relative">
+        <!-- Mission Section -->
+        <section id="mission" class="py-24 bg-white/30 border-y border-spa-pink/10 relative backdrop-blur-xs">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div class="space-y-4 mb-12">
                     <h2 class="text-4xl sm:text-5xl font-serif text-spa-text">My Core Mission</h2>
                     <div class="w-12 h-[1px] bg-spa-pink mx-auto"></div>
                 </div>
                 <blockquote class="text-2xl sm:text-3xl font-serif italic text-spa-text/90 leading-relaxed max-w-3xl mx-auto">
-                    "To professionally harness advanced AI tools to engineer whole digital systems from scratch delivering robust, intelligent software landscapes that master both high-speed cloud operations and visually balanced user interfaces."
+                    "To professionally harness advanced AI tools to engineer whole digital systems from scratch—delivering robust, intelligent software landscapes that master both high-speed cloud operations and visually balanced user interfaces."
                 </blockquote>
             </div>
         </section>
 
+        <!-- Timeline Section -->
         <section id="timeline" class="py-24 relative overflow-hidden">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -254,7 +266,8 @@
             </div>
         </section>
 
-        <section id="projects" class="py-24 bg-white/40 border-t border-spa-pink/10 relative">
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-white/30 border-t border-spa-pink/10 relative backdrop-blur-xs">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -264,7 +277,8 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-8 bg-white/70 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between">
+                    <!-- Project 1 -->
+                    <div class="p-8 bg-white/60 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between backdrop-blur-sm">
                         <div class="space-y-6">
                             <div class="w-12 h-12 rounded-2xl bg-spa-pink/20 flex items-center justify-center text-spa-text group-hover:scale-110 transition-transform duration-300">
                                 <i data-lucide="bot" class="w-6 h-6" aria-hidden="true"></i>
@@ -285,7 +299,8 @@
                         </div>
                     </div>
 
-                    <div class="p-8 bg-white/70 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between">
+                    <!-- Project 2 -->
+                    <div class="p-8 bg-white/60 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between backdrop-blur-sm">
                         <div class="space-y-6">
                             <div class="w-12 h-12 rounded-2xl bg-spa-green/20 flex items-center justify-center text-spa-text group-hover:scale-110 transition-transform duration-300">
                                 <i data-lucide="brain-circuit" class="w-6 h-6" aria-hidden="true"></i>
@@ -306,7 +321,8 @@
                         </div>
                     </div>
 
-                    <div class="p-8 bg-white/70 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between">
+                    <!-- Project 3 -->
+                    <div class="p-8 bg-white/60 border border-white rounded-[2rem] shadow-soft hover:shadow-soft-lg transition-all duration-300 group flex flex-col justify-between backdrop-blur-sm">
                         <div class="space-y-6">
                             <div class="w-12 h-12 rounded-2xl bg-spa-pink/20 flex items-center justify-center text-spa-text group-hover:scale-110 transition-transform duration-300">
                                 <i data-lucide="database" class="w-6 h-6" aria-hidden="true"></i>
@@ -331,6 +347,7 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="py-24 relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
@@ -363,7 +380,7 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-7 bg-white/60 border border-white rounded-[2rem] p-8 sm:p-10 shadow-soft">
+                    <div class="lg:col-span-7 bg-white/50 border border-white rounded-[2rem] p-8 sm:p-10 shadow-soft backdrop-blur-sm">
                         <h3 class="text-2xl font-serif text-spa-text mb-6">Send an Direct Message</h3>
                         <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message routed correctly! Rikesh will follow up via email within 24 hours.');">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -391,7 +408,7 @@
         </section>
     </main>
 
-    <footer class="bg-white/80 border-t border-spa-pink/20 py-12">
+    <footer class="bg-white/80 border-t border-spa-pink/20 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <p class="text-xs text-spa-text/50 font-light tracking-wide">
                 &copy; 2026 Rikesh Acharya. All Rights Reserved.
@@ -400,7 +417,7 @@
                 <a href="https://github.com/RikeshAcharya" target="_blank" rel="noopener noreferrer" class="transition-opacity duration-200 cursor-pointer hover:opacity-70 flex items-center" aria-label="Rikesh Acharya GitHub Profile">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0EciS6Zuo6EDbNQvq2U38MYGjDaBnYS2wIopHiJ-YjNGsdqZa3lXq5Kc&s=10" alt="Custom GitHub Footer Branding Link" class="w-5 h-5 object-cover rounded-md grayscale opacity-60 hover:grayscale-0 hover:opacity-100">
                 </a>
-                <a href="https://www.linkedin.com/in/rikesh-acharya-335a57366?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="transition-opacity duration-200 cursor-pointer hover:opacity-70 flex items-center" aria-label="Rikesh Acharya LinkedIn Profile">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="transition-opacity duration-200 cursor-pointer hover:opacity-70 flex items-center" aria-label="Rikesh Acharya LinkedIn Profile">
                     <img src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn Footer Branding Link" class="w-4 h-4 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100">
                 </a>
             </div>
@@ -425,6 +442,138 @@
                 menu.classList.add('hidden');
             });
         });
+
+        // --- Three.js Microprocessor Interactive Engine Implementation ---
+        const container = document.getElementById('canvas-container');
+        
+        // Guard checking user performance preferences before firing scene hooks
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const scene = new THREE.Scene();
+            
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 40;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Microprocessor Core Grid Matrix Configuration
+            const circuitGroup = new THREE.Group();
+            scene.add(circuitGroup);
+
+            // 1. Core Nodes (Particle Array Assembly)
+            const nodeCount = 120;
+            const nodeGeometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(nodeCount * 3);
+            const colors = new Float32Array(nodeCount * 3);
+
+            const baseColor = new THREE.Color('#E8B4B8'); // Soft pink accent matching framework profile palette
+            const traceColor = new THREE.Color('#A8D5BA'); // Soft green variant accent
+
+            for (let i = 0; i < nodeCount; i++) {
+                // Formatting array data inside structured localized micro-grids to emulate processor architecture lanes
+                const blockX = Math.floor(i / 30) - 2;
+                const blockY = (i % 30) % 5 - 2;
+                
+                positions[i * 3] = blockX * 18 + (Math.random() - 0.5) * 8;
+                positions[i * 3 + 1] = blockY * 14 + (Math.random() - 0.5) * 6;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
+
+                const appliedColor = Math.random() > 0.5 ? baseColor : traceColor;
+                colors[i * 3] = appliedColor.r;
+                colors[i * 3 + 1] = appliedColor.g;
+                colors[i * 3 + 2] = appliedColor.b;
+            }
+
+            nodeGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            nodeGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const nodeMaterial = new THREE.PointsMaterial({
+                size: 0.35,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.7,
+                blending: THREE.AdditiveBlending
+            });
+
+            const pointCloud = new THREE.Points(nodeGeometry, nodeMaterial);
+            circuitGroup.add(pointCloud);
+
+            // 2. Structural Trace Bus Routes (Procedural Vector Links)
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0xD4AF37, // Gold Bus tracing color
+                transparent: true,
+                opacity: 0.15,
+                blending: THREE.AdditiveBlending
+            });
+
+            const lineGeometry = new THREE.BufferGeometry();
+            const linePositions = [];
+
+            // Grouping spatial matrices sequentially to mimic electronic bus pathways
+            const posAttr = nodeGeometry.attributes.position.array;
+            for (let i = 0; i < nodeCount; i++) {
+                for (let j = i + 1; j < nodeCount; j++) {
+                    const dx = posAttr[i * 3] - posAttr[j * 3];
+                    const dy = posAttr[i * 3 + 1] - posAttr[j * 3 + 1];
+                    const dz = posAttr[i * 3 + 2] - posAttr[j * 3 + 2];
+                    const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                    // Threshold check tracking pipeline layout intersections
+                    if (distance < 7.5) {
+                        linePositions.push(posAttr[i * 3], posAttr[i * 3 + 1], posAttr[i * 3 + 2]);
+                        linePositions.push(posAttr[j * 3], posAttr[j * 3 + 1], posAttr[j * 3 + 2]);
+                    }
+                }
+            }
+
+            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+            const busLines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            circuitGroup.add(busLines);
+
+            // Interactive Cursor Intercept Triggers
+            let targetMouseX = 0;
+            let targetMouseY = 0;
+            let currentMouseX = 0;
+            let currentMouseY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                targetMouseX = (e.clientX / window.innerWidth) - 0.5;
+                targetMouseY = (e.clientY / window.innerHeight) - 0.5;
+            });
+
+            // Unified Render Frame Loop Execution block
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const elapsed = clock.getElapsedTime();
+
+                // Gentle passive rotation modeling structural data cycling
+                circuitGroup.rotation.y = elapsed * 0.03;
+                circuitGroup.rotation.x = Math.sin(elapsed * 0.01) * 0.05;
+
+                // Dampened mouse-tracking camera easing equations for performance stability
+                currentMouseX += (targetMouseX - currentMouseX) * 0.05;
+                currentMouseY += (targetMouseY - currentMouseY) * 0.05;
+
+                circuitGroup.position.x = currentMouseX * 8;
+                circuitGroup.position.y = -currentMouseY * 6;
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Resize Observer Hook ensuring persistent aspect-ratio tracking loops
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
     </script>
 </body>
 </html>
