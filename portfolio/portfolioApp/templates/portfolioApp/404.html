@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #0b0e1a 0%, #1a1f2f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .error-card {
+            max-width: 540px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 48px;
+            padding: 3rem 2.2rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .error-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+        }
+
+        .error-icon {
+            font-size: 4.5rem;
+            color: rgba(100, 180, 255, 0.25);
+            margin-bottom: 1rem;
+        }
+
+        .error-card h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0f4ff, #a0c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .error-card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .error-card p {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .error-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(100, 180, 255, 0.12);
+            border: 1px solid rgba(100, 180, 255, 0.20);
+            color: #b8d6ff;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .error-card a:hover {
+            background: rgba(100, 180, 255, 0.22);
+            border-color: rgba(100, 180, 255, 0.40);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(60, 120, 255, 0.15);
+        }
+
+        .error-card .footnote {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 1.5rem;
+        }
+
+        .error-card .footnote i {
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-card">
+        <div class="error-icon">
+            <i class="fas fa-compass"></i>
+        </div>
+        <h1>404</h1>
+        <h2>Page not found</h2>
+        <p>
+            Oops! The page you were looking for doesn’t exist.<br />
+            It may have been moved, deleted, or you might have mistyped the URL.
+        </p>
+        <a href="{% url 'portfolio' %}">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <div class="footnote">
+            <i class="fas fa-code"></i> Rikesh Acharya
+        </div>
+    </div>
+</body>
+</html>
