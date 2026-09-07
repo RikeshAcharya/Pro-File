@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rikesh Acharya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #0f0d0c;
+            color: #f7f2eb;
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: hidden;
+        }
+
+        ::selection {
+            background: #b45f3a;
+            color: #f7f2eb;
+        }
+
+        .serif {
+            font-family: 'Unbounded', sans-serif;
+        }
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* ── background orbs ── */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        .bg-orb--1 {
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            left: -200px;
+            background: radial-gradient(circle, rgba(180, 95, 58, 0.40), transparent 70%);
+            animation: floatOrb 16s ease-in-out infinite alternate;
+        }
+        .bg-orb--2 {
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -150px;
+            background: radial-gradient(circle, rgba(74, 107, 79, 0.30), transparent 70%);
+            animation: floatOrb 20s ease-in-out infinite alternate-reverse;
+        }
+        .bg-orb--3 {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(212, 135, 99, 0.15), transparent 70%);
+            animation: floatOrb 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(40px, -30px) scale(1.2);
+            }
+        }
+
+        /* ── main card ── */
+        .error-card {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            width: 100%;
+            padding: 60px 48px 48px;
+            background: rgba(30, 27, 26, 0.70);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            border: 1px solid rgba(247, 242, 235, 0.06);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(247, 242, 235, 0.04);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .error-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(247, 242, 235, 0.08);
+        }
+
+        /* ── 404 illustration ── */
+        .error-icon {
+            margin: 0 auto 28px;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .error-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #b45f3a;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .error-icon .glow {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(180, 95, 58, 0.15), transparent 70%);
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+        }
+
+        .error-icon .code-404 {
+            position: absolute;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            font-size: 3.2rem;
+            color: #f7f2eb;
+            letter-spacing: -0.04em;
+            opacity: 0.9;
+            z-index: 1;
+            text-shadow: 0 0 40px rgba(180, 95, 58, 0.20);
+        }
+
+        /* ── text ── */
+        .error-title {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin: 0 0 12px 0;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .error-title span {
+            color: #b45f3a;
+        }
+
+        .error-sub {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            color: #b0a898;
+            max-width: 420px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        /* ── links ── */
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            background: transparent;
+            color: #f7f2eb;
+        }
+        .btn--primary {
+            background: #b45f3a;
+            color: #f7f2eb;
+            box-shadow: 0 4px 20px rgba(180, 95, 58, 0.30);
+        }
+        .btn--primary:hover {
+            background: #d48763;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(180, 95, 58, 0.40);
+        }
+        .btn--secondary {
+            border: 1px solid rgba(247, 242, 235, 0.12);
+            background: rgba(247, 242, 235, 0.04);
+        }
+        .btn--secondary:hover {
+            background: rgba(247, 242, 235, 0.10);
+            border-color: rgba(247, 242, 235, 0.20);
+            transform: translateY(-2px);
+        }
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .error-footer {
+            font-size: 0.78rem;
+            color: #5a5450;
+            letter-spacing: 0.04em;
+            border-top: 1px solid rgba(247, 242, 235, 0.06);
+            padding-top: 20px;
+            margin-top: 4px;
+        }
+        .error-footer a {
+            color: #8a7e72;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .error-footer a:hover {
+            color: #b45f3a;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 600px) {
+            .error-card {
+                padding: 40px 24px 32px;
+                border-radius: 28px;
+            }
+            .error-icon {
+                width: 90px;
+                height: 90px;
+            }
+            .error-icon .code-404 {
+                font-size: 2.4rem;
+            }
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+            }
+        }
+        @media (max-width: 400px) {
+            .error-card {
+                padding: 28px 16px 24px;
+            }
+            .error-title {
+                font-size: 1.6rem;
+            }
+            .error-icon {
+                width: 70px;
+                height: 70px;
+            }
+            .error-icon .code-404 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── background orbs ─── -->
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+
+    <!-- ─── 404 card ─── -->
+    <div class="error-card">
+
+        <!-- icon -->
+        <div class="error-icon">
+            <div class="glow"></div>
+            <span class="code-404">404</span>
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- abstract broken path / compass-like shape -->
+                <circle cx="60" cy="60" r="40" stroke="rgba(180,95,58,0.20)" stroke-width="1.5" />
+                <path d="M60 20 L60 60 L80 80" stroke="#b45f3a" stroke-width="2.5" />
+                <path d="M60 20 L60 60 L40 80" stroke="#b45f3a" stroke-width="2.5" opacity="0.4" />
+                <circle cx="60" cy="60" r="6" fill="#b45f3a" stroke="none" opacity="0.6" />
+                <!-- small dashes -->
+                <line x1="60" y1="14" x2="60" y2="10" stroke="#b45f3a" stroke-width="2" opacity="0.3" />
+                <line x1="60" y1="110" x2="60" y2="106" stroke="#b45f3a" stroke-width="2" opacity="0.3" />
+                <line x1="14" y1="60" x2="10" y2="60" stroke="#b45f3a" stroke-width="2" opacity="0.3" />
+                <line x1="110" y1="60" x2="106" y2="60" stroke="#b45f3a" stroke-width="2" opacity="0.3" />
+                <!-- tiny dots -->
+                <circle cx="34" cy="34" r="2" fill="rgba(180,95,58,0.25)" />
+                <circle cx="86" cy="34" r="2" fill="rgba(180,95,58,0.25)" />
+                <circle cx="34" cy="86" r="2" fill="rgba(180,95,58,0.25)" />
+                <circle cx="86" cy="86" r="2" fill="rgba(180,95,58,0.25)" />
+            </svg>
+        </div>
+
+        <!-- text -->
+        <h1 class="error-title">Hello, <span>This is Rikesh</span></h1>
+        <p class="error-sub">
+            The page you're looking for doesn't exist, maybe I moved the page or maybe you just took a wrong turn in the Merkle tree.
+        </p>
+
+        <!-- actions -->
+        <div class="error-actions">
+            <a href="index.html" class="btn btn--primary">
+                <svg viewBox="0 0 24 24"><path d="M3 12H21M3 12L9 6M3 12L9 18"/></svg>
+                Go home
+            </a>
+
+        </div>
+
+        <!-- footer -->
+        <div class="error-footer">
+            <span class="mono">404 · </span>
+            <a href="index.html">Rikesh Acharya</a>
+            <span class="mono"> · 2026</span>
+        </div>
+
+    </div>
+
+    <!-- ─── tiny script: smooth entry ─── -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.error-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(24px) scale(0.98)';
+            card.style.transition = 'opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+            requestAnimationFrame(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+
+</body>
+</html>
