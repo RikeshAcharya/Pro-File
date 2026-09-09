@@ -151,6 +151,12 @@
             --toggle-hover: rgba(0, 0, 0, 0.15);
             --toggle-icon: #000000;
             --theme-color: #f7f2eb;
+            --rust: #b45f3a;
+            --rust-light: #d48763;
+            --ledger: #4a6b4f;
+            --ledger-light: #6a8b6f;
+            --radius: 20px;
+            --radius-sm: 12px;
 
             /* Chatbot specific */
             --chat-bg: #ffffff;
@@ -196,6 +202,10 @@
             --toggle-hover: rgba(255, 255, 255, 0.18);
             --toggle-icon: #f0ece6;
             --theme-color: #1a1a1a;
+            --rust: #d48763;
+            --rust-light: #e8a884;
+            --ledger: #6a8b6f;
+            --ledger-light: #8aab8f;
 
             --chat-bg: #1e1e1e;
             --chat-border: #3a3a3a;
@@ -537,6 +547,32 @@
             border-bottom-color: #b45f3a;
         }
 
+        /* Resume nav link — special accent */
+        nav a.resume-link {
+            background: var(--rust);
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border-bottom: none;
+            font-weight: 500;
+            font-size: 0.82rem;
+            opacity: 1;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        nav a.resume-link:hover {
+            background: var(--rust-light);
+            transform: scale(1.04);
+            border-bottom: none;
+        }
+        nav a.resume-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
         .nav-social {
             display: inline-flex;
             align-items: center;
@@ -633,9 +669,17 @@
                 width: 16px;
                 height: 16px;
             }
+            nav a.resume-link {
+                padding: 4px 12px;
+                font-size: 0.7rem;
+            }
+            nav a.resume-link svg {
+                width: 13px;
+                height: 13px;
+            }
         }
         @media (max-width: 500px) {
-            nav a:not(.nav-social):not(.theme-toggle) {
+            nav a:not(.nav-social):not(.theme-toggle):not(.resume-link) {
                 display: none;
             }
             .nav-social {
@@ -845,6 +889,70 @@
             font-size: 0.82rem;
             color: var(--text-secondary);
             line-height: 1.4;
+        }
+
+        /* ── Hero Resume CTA ── */
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 6px;
+            opacity: 0;
+            animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s forwards;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--rust);
+            color: #fff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(180, 95, 58, 0.25);
+            text-decoration: none;
+            border-bottom: none;
+        }
+        .btn-primary:hover {
+            background: var(--rust-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(180, 95, 58, 0.35);
+            border-bottom: none;
+            color: #fff;
+        }
+        .btn-primary svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
+        .btn-secondary:hover {
+            border-color: var(--rust);
+            background: var(--tag-hover-bg);
+            transform: translateY(-2px);
+            border-bottom: none;
+            color: var(--text-primary);
         }
 
         .section-head {
@@ -1335,6 +1443,17 @@
                 font-size: 0.7rem;
                 padding: 1px 8px;
             }
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1702,6 +1821,11 @@
             <a href="#work">Work</a>
             <a href="#markets">Markets</a>
             <a href="#contact">Contact</a>
+            <!-- ===== RESUME LINK (NEW) ===== -->
+            <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="resume-link" aria-label="Download resume">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M8 12h8v2H8zm0 4h5v2H8zm0-8h3v2H8z"/></svg>
+                Resume
+            </a>
             <a href="https://www.linkedin.com/in/rikesh-acharya-335a57366" target="_blank" rel="noopener" class="nav-social" aria-label="LinkedIn profile">
                 <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 <span>LinkedIn</span>
@@ -1735,6 +1859,14 @@
                 <div class="hero-text">
                     <h1>Rikesh</h1>
                     <p class="role">I'm learning computer science in Kathmandu. My big goal is to get really good at checking blockchain code for mistakes, and I also love fintech (money apps) and the stock market.</p>
+                    <!-- ===== HERO CTA: Resume + Contact ===== -->
+                    <div class="hero-cta-group">
+                        <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="btn-primary" aria-label="Download resume">
+                            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M8 12h8v2H8zm0 4h5v2H8zm0-8h3v2H8z"/></svg>
+                            Download Resume
+                        </a>
+                        <a href="#contact" class="btn-secondary">Get in Touch</a>
+                    </div>
                     <div class="stats">
                         <div class="stat"><div class="n serif">2023</div><div class="l">Started my Computer Science degree</div></div>
                         <div class="stat"><div class="n serif">16-20 wk</div><div class="l">my plan to learn blockchain code-checking</div></div>
@@ -1975,6 +2107,8 @@
             <a href="https://github.com/RikeshAcharya" target="_blank" rel="noopener" aria-label="GitHub">
                 <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             </a>
+            <!-- Resume link in footer -->
+            <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="link-404">Resume</a>
         </div>
     </footer>
 
@@ -2114,7 +2248,7 @@
             });
         })();
 
-        // ===== CHATBOT LOGIC (unchanged, just updated to work with new HTML) =====
+        // ===== CHATBOT LOGIC =====
         (function() {
             const windowEl = document.getElementById('chatWindow');
             const toggleBtn = document.getElementById('chatToggle');
@@ -2123,7 +2257,6 @@
             const input = document.getElementById('chatInput');
             const sendBtn = document.getElementById('chatSend');
 
-            // Comprehensive rule set
             const rules = [{
                 keywords: ['hello', 'hi', 'hey', 'greetings', 'hola'],
                 response: "Hi! 👋 I'm Rikesh's virtual assistant. I can tell you about his background, projects, skills, blockchain focus, finance work, and how to contact him. What would you like to know?"
@@ -2154,6 +2287,9 @@
             }, {
                 keywords: ['goal', 'aspiration', 'future', 'plan', 'career'],
                 response: "Rikesh's big goal is to become an expert in blockchain security, specifically smart contract auditing. He also wants to work at the intersection of fintech and development, possibly at companies like F1Soft Group or FoneNXT. He's building skills step by step."
+            }, {
+                keywords: ['resume', 'cv', 'download resume', 'pdf'],
+                response: "You can download Rikesh's resume by clicking the 'Resume' link in the navigation bar, the 'Download Resume' button on the hero section, or the 'Resume' link in the footer. It opens as a PDF in your browser or downloads directly."
             }];
 
             const defaultResponse = "I don't have info on that specifically. But I can tell you about Rikesh's projects, skills, blockchain focus, finance work, or how to contact him. What would you like to ask?";
@@ -2248,7 +2384,6 @@
                 windowEl.classList.remove('open');
             });
 
-            // Click outside to close (optional)
             document.addEventListener('click', (e) => {
                 const container = document.querySelector('.chat-container');
                 if (windowEl.classList.contains('open') &&
