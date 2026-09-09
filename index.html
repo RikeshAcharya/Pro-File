@@ -488,6 +488,7 @@
             pointer-events: auto;
         }
 
+        /* ── Logo / Brand Mark ── */
         .mark {
             display: inline-flex;
             align-items: center;
@@ -507,6 +508,8 @@
             text-decoration: none;
             letter-spacing: -0.01em;
             border-bottom: none;
+            position: relative;
+            height: 44px;
         }
         .mark .full {
             white-space: nowrap;
@@ -528,6 +531,74 @@
             margin-left: 4px;
         }
 
+        /* ── Header Avatar (appears on scroll) ── */
+        .header-avatar {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 50%;
+            overflow: hidden;
+            background: #b45f3a;
+            width: 44px;
+            height: 44px;
+            margin: 0;
+            padding: 0;
+            transform: scale(0.85);
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .header-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .header-avatar.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+        /* Hide text when avatar is visible */
+        .mark .short,
+        .mark .full {
+            transition: opacity 0.4s ease, max-width 0.4s ease, margin 0.4s ease;
+        }
+        .mark.has-avatar .short,
+        .mark.has-avatar .full {
+            opacity: 0;
+            max-width: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .mark.has-avatar {
+            padding: 0 !important;
+            min-width: 44px;
+            max-width: 44px !important;
+            background: transparent !important;
+            border-radius: 50%;
+            overflow: visible;
+        }
+        .mark.has-avatar .header-avatar {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+        .mark.has-avatar:hover {
+            max-width: 44px !important;
+            padding: 0 !important;
+            background: transparent !important;
+            transform: scale(1.08);
+        }
+        .mark.has-avatar:hover .header-avatar {
+            transform: scale(1.08);
+        }
+
+        /* ── Navigation ── */
         nav {
             display: flex;
             align-items: center;
@@ -655,9 +726,19 @@
                 padding: 3px 12px 3px 10px;
                 min-width: 38px;
                 max-width: 50px;
+                height: 38px;
             }
             .mark .full {
                 font-size: 0.8rem;
+            }
+            .mark.has-avatar {
+                min-width: 38px !important;
+                max-width: 38px !important;
+                height: 38px;
+            }
+            .header-avatar {
+                width: 38px;
+                height: 38px;
             }
             .theme-toggle {
                 min-width: 34px;
@@ -1809,9 +1890,13 @@
 
     <!-- ─── header ─── -->
     <header>
-        <a href="#hero" class="mark">
+        <a href="#hero" class="mark" id="brandMark">
             <span class="short">R.</span>
             <span class="full">Rikesh Acharya</span>
+            <!-- Avatar that appears on scroll -->
+            <span class="header-avatar" id="headerAvatar">
+                <img src="rikeshAcharya1.webp" alt="Rikesh Acharya" />
+            </span>
         </a>
         <nav>
             <a href="#hero">Home</a>
@@ -1821,7 +1906,7 @@
             <a href="#work">Work</a>
             <a href="#markets">Markets</a>
             <a href="#contact">Contact</a>
-            <!-- ===== RESUME LINK (NEW) ===== -->
+            <!-- ===== RESUME LINK ===== -->
             <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="resume-link" aria-label="Download resume">
                 <svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M8 12h8v2H8zm0 4h5v2H8zm0-8h3v2H8z"/></svg>
                 Resume
@@ -1859,7 +1944,6 @@
                 <div class="hero-text">
                     <h1>Rikesh</h1>
                     <p class="role">I'm learning computer science in Kathmandu. My big goal is to get really good at checking blockchain code for mistakes, and I also love fintech (money apps) and the stock market.</p>
-                    <!-- ===== HERO CTA: Resume + Contact ===== -->
                     <div class="hero-cta-group">
                         <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="btn-primary" aria-label="Download resume">
                             <svg viewBox="0 0 24 24" width="20" height="20"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/><path d="M8 12h8v2H8zm0 4h5v2H8zm0-8h3v2H8z"/></svg>
@@ -2107,28 +2191,23 @@
             <a href="https://github.com/RikeshAcharya" target="_blank" rel="noopener" aria-label="GitHub">
                 <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             </a>
-            <!-- Resume link in footer -->
             <a href="Rikesh%20Acharya%20Resume%20(1).pdf" target="_blank" rel="noopener" class="link-404">Resume</a>
         </div>
     </footer>
 
     <!-- ===== CHATBOT ===== -->
     <div class="chat-container">
-        <!-- Chat window -->
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
                 <h3><span class="dot"></span> Chat with Rikesh</h3>
                 <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
             </div>
-            <div class="chat-messages" id="chatMessages">
-                <!-- Messages will be injected here -->
-            </div>
+            <div class="chat-messages" id="chatMessages"></div>
             <div class="chat-input-area">
                 <input type="text" id="chatInput" placeholder="Ask me something…" autocomplete="off" />
                 <button id="chatSend">Send</button>
             </div>
         </div>
-        <!-- Toggle button -->
         <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
             <svg viewBox="0 0 24 24" width="30" height="30">
                 <path d="M12 2C6.48 2 2 6.48 2 12c0 1.52.36 2.95.98 4.23L2 22l5.77-.98A9.98 9.98 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.49 0-2.88-.44-4.03-1.17l-.75-.44-3.25.66.66-3.25-.44-.75A7.92 7.92 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/>
@@ -2138,7 +2217,45 @@
 
     <!-- ─── scripts ─── -->
     <script>
-        // Loader: fade out after 3.5s
+        // ─── SCROLL: show avatar in header ───
+        (function() {
+            const mark = document.getElementById('brandMark');
+            const hero = document.getElementById('hero');
+            let ticking = false;
+
+            function checkScroll() {
+                if (!hero) return;
+                const heroBottom = hero.offsetTop + hero.offsetHeight;
+                const scrollY = window.scrollY || window.pageYOffset;
+                const threshold = heroBottom - 120; // show after hero section minus some offset
+
+                if (scrollY > threshold) {
+                    mark.classList.add('has-avatar');
+                } else {
+                    mark.classList.remove('has-avatar');
+                }
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        checkScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Check on load too
+            window.addEventListener('load', function() {
+                setTimeout(checkScroll, 200);
+            });
+
+            // Also check on resize
+            window.addEventListener('resize', checkScroll);
+        })();
+
+        // ─── Loader ───
         window.addEventListener('load', function() {
             setTimeout(() => {
                 const loader = document.getElementById('loader');
@@ -2149,7 +2266,7 @@
             }, 3500);
         });
 
-        // ─── CONTACT FORM: open email client with mailto ───
+        // ─── CONTACT FORM ───
         (function() {
             const form = document.getElementById('contactForm');
             const status = document.getElementById('formStatus');
@@ -2191,7 +2308,7 @@
             });
         })();
 
-        // ===== DARK MODE TOGGLE =====
+        // ─── DARK MODE ───
         (function() {
             const toggle = document.getElementById('themeToggle');
             const icon = document.getElementById('themeIcon');
@@ -2248,7 +2365,7 @@
             });
         })();
 
-        // ===== CHATBOT LOGIC =====
+        // ─── CHATBOT ───
         (function() {
             const windowEl = document.getElementById('chatWindow');
             const toggleBtn = document.getElementById('chatToggle');
@@ -2394,6 +2511,7 @@
         })();
     </script>
 
+    <!-- ===== ANIME.JS SCRIPTS (unchanged) ===== -->
     <script type="module">
         import { createTimer, createTimeline, utils } from 'https://esm.sh/animejs@4';
         const statEl = document.getElementById('statCount');
